@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}" dir="{% if lang == 'fa' %}rtl{% else %}ltr{% endif %}">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ t.hero_name }} | {{ t.hero_title }}</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Syne (display) + DM Mono (body/UI) — matches new CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Scanline overlay -->
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="navbar">
+
+    <div class="logo">{{ t.hero_name }}</div>
+
+    <ul class="nav-links">
+        <li><a href="/">{{ t.home }}</a></li>
+        <li><a href="#about">{{ t.about }}</a></li>
+        <li><a href="#skills">{{ t.skills }}</a></li>
+        <li><a href="#projects">{{ t.projects }}</a></li>
+        <li><a href="#certificates">{{ t.certificates }}</a></li>
+        <li><a href="#contact">{{ t.contact }}</a></li>
+    </ul>
+
+    <div class="lang-switch">
+        <a href="/lang/en">EN</a>
+        <a href="/lang/fa">FA</a>
+    </div>
+
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="status-badge">
+            {{ t.hero_name }}
+        </div>
+
+        <h1>{{ t.hero_name }}</h1>
+
+        <h2>// <span>{{ t.hero_title }}</span></h2>
+
+        <p>{{ t.hero_desc }}</p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn-primary">{{ t.View_P }}</a>
+
+            <a href="/static/resume/Mahdiar-Naghizadeh-Resume.pdf"
+               class="btn-secondary"
+               download>{{ t.D_resume }}</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about" class="about">
+
+    <div class="about-container">
+
+        <div class="about-image">
+            <div class="photo-frame">
+                <img src="/static/images/cropped_circle_image.png" alt="Mahdiar">
+            </div>
+        </div>
+
+        <div class="about-content">
+
+            <p class="section-sub">// {{ t.about }}</p>
+            <h2>{{ t.about }} <span>Me</span></h2>
+
+            <p>{{ t.about_p1 }}</p>
+            <p>{{ t.about_p2 }}</p>
+            <p>{{ t.about_p3 }}</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ============================================================
+     SKILLS
+============================================================ -->
+<section id="skills" class="skills">
+
+    <p class="section-sub" style="text-align:center">// Capabilities</p>
+    <h2>{{ t.skills }}</h2>
+    <div class="section-line" style="margin-inline:auto"></div>
+
+    <div class="skills-grid">
+        <div class="skill-card">Python</div>
+        <div class="skill-card">Artificial Intelligence (AI)</div>
+        <div class="skill-card">Data Science</div>
+        <div class="skill-card">Data Analysis</div>
+        <div class="skill-card">Data Cleaning</div>
+        <div class="skill-card">Machine Learning</div>
+        <div class="skill-card">Deep Learning</div>
+        <div class="skill-card">FastAPI</div>
+        <div class="skill-card">Scikit-Learn</div>
+        <div class="skill-card">NumPy</div>
+        <div class="skill-card">Pandas</div>
+        <div class="skill-card">SQL</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Git</div>
+        <div class="skill-card">HTML</div>
+        <div class="skill-card">CSS</div>
+    </div>
+
+</section>
+
+<!-- ============================================================
+     PROJECTS
+============================================================ -->
+<section id="projects" class="projects">
+
+    <p class="section-sub" style="text-align:center">// Selected Work</p>
+    <h2>{{ t.projects }}</h2>
+    <div class="section-line" style="margin-inline:auto"></div>
+
+    <div class="project-grid">
+
+        {% for project in projects %}
+
+        <div class="project-card">
+            <div class="shimmer"></div>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <a href="{{ project.github_url }}" target="_blank" rel="noopener">
+                View Project
+            </a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ============================================================
+     CERTIFICATES
+============================================================ -->
+<section id="certificates" class="certificates">
+
+    <p class="section-sub" style="text-align:center">// Credentials</p>
+    <h2>{{ t.certificates }}</h2>
+    <div class="section-line" style="margin-inline:auto"></div>
+
+    <div class="certificate-grid">
+
+        {% for cert in certificates %}
+
+        <div class="certificate-card">
+            <h3>{{ cert.title }}</h3>
+            <p>{{ cert.issuer }}</p>
+            {% if cert.url %}
+            <a href="{{ cert.url }}" target="_blank" rel="noopener">
+                View Certificate →
+            </a>
+            {% endif %}
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ============================================================
+     RESUME
+============================================================ -->
+<section id="resume" class="resume">
+
+    <p class="section-sub">// Resume</p>
+    <h2>{{ t.resume }}</h2>
+
+    <p>Download my complete professional resume.</p>
+
+    <a href="/static/resume/Mahdiar-Naghizadeh-Resume.pdf"
+       class="btn-primary"
+       download>{{ t.D_resume }}</a>
+
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact" class="contact">
+
+    <p class="section-sub">// Get in Touch</p>
+    <h2>{{ t.contact }}</h2>
+    <div class="section-line" style="margin-inline:auto"></div>
+
+    <form id="contact-form">
+
+        <input type="text"
+               name="name"
+               placeholder="{{ t.contact_name }}"
+               required>
+
+        <input type="email"
+               name="email"
+               placeholder="{{ t.contact_email }}"
+               required>
+
+        <textarea name="message"
+                  rows="6"
+                  placeholder="{{ t.contact_message }}"
+                  required></textarea>
+
+        <button type="submit">{{ t.contact_btn }}</button>
+
+    </form>
+
+    <p id="response-message"></p>
+
+</section>
+
+<script src="/static/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Project</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+
+<section class="project-form-page">
+
+    <div class="form-container">
+
+        <div class="form-header">
+
+            <h1>Add Project</h1>
+
+            <p>Create a new portfolio project.</p>
+
+        </div>
+
+        <form method="POST">
+
+            <div class="form-group">
+
+                <label>Project Title</label>
+
+                <input
+                    type="text"
+                    name="title"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Description</label>
+
+                <textarea
+                    name="description"
+                    rows="5"
+                    required
+                ></textarea>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Technologies</label>
+
+                <input
+                    type="text"
+                    name="technologies"
+                    placeholder="Python, FastAPI, SQLite"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>GitHub URL</label>
+
+                <input
+                    type="url"
+                    name="github_url"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Image URL</label>
+
+                <input
+                    type="text"
+                    name="image_url"
+                >
+
+            </div>
+
+            <div class="form-actions">
+
+                <a href="/admin" class="btn-secondary">
+                    Cancel
+                </a>
+
+                <button type="submit" class="btn-primary">
+                    Save Project
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+</html>

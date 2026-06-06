@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Certificate</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+<body>
+
+<section class="project-form-page">
+
+    <div class="form-container">
+
+        <div class="form-header">
+
+            <h1>Edit Certificate</h1>
+            <p>Update certificate details</p>
+
+        </div>
+
+        <form method="POST">
+
+            <div class="form-group">
+
+                <label>Title</label>
+
+                <input type="text"
+                       name="title"
+                       value="{{ certificate.title }}"
+                       required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Issuer</label>
+
+                <input type="text"
+                       name="issuer"
+                       value="{{ certificate.issuer }}">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Certificate URL</label>
+
+                <input type="text"
+                       name="url"
+                       value="{{ certificate.url }}">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Image URL</label>
+
+                <input type="text"
+                       name="image_url"
+                       value="{{ certificate.image_url }}">
+
+            </div>
+
+            <div class="form-actions">
+
+                <button type="submit" class="btn-primary">
+                    Update Certificate
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+</html>
