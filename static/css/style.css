@@ -410,7 +410,7 @@ body.light-mode .theme-toggle::after{ transform:translateX(16px); background:var
     overflow:hidden;
 }
 
-.hero-content{ max-width:980px; position:relative; z-index:1; }
+.hero-content{ max-width:1280px; position:relative; z-index:1; }
 
 /* Animated grid */
 .hero::before{
