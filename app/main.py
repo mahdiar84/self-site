@@ -40,7 +40,8 @@ async def home(request: Request):
     conn.close()
 
     return templates.TemplateResponse(
-        "index.html",
+        request=request,
+        name="index.html",
         {
             "request": request,
             "projects": projects,
